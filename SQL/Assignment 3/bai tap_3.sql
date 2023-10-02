@@ -359,4 +359,18 @@ DELETE
 FROM Exam 
 WHERE CreatedDate <'2019-12-20';
 
+-- Question 13 
+DELETE 
+FROM question
+WHERE Content LIKE 'Câu hỏi%';
 
+-- Question 14 
+UPDATE `account`
+SET Fullname = 'Nguyễn Bá Lộc',
+Email = 'loc.nguyenba@vti.com.vn'
+WHERE AccountID = 5;
+
+-- Question 15 
+UPDATE GroupAccount 
+SET AccountID = 4
+WHERE GroupID = 5;
