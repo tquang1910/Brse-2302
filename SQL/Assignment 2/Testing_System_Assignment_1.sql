@@ -59,7 +59,7 @@ CreatorID TINYINT,
 CreateDate DATETIME,
 CONSTRAINT fk_Question_CategoryQuestion FOREIGN KEY (CategoryID) REFERENCES categoryquestion(CategoryID),
 CONSTRAINT fk_Question_TypeQuestion FOREIGN KEY (TypeID) REFERENCES TypeQuestion(TypeID),
-CONSTRAINT fk_Question_Group FOREIGN KEY (CreatorID) REFERENCES `Group`(CreatorID)
+CONSTRAINT fk_Question_Group FOREIGN KEY (CreatorID) REFERENCES `Account`(AccountID)
 );
 
 
@@ -80,13 +80,13 @@ DURATION DATETIME,
 CreatorID TINYINT,
 CreateDate DATETIME, 
 CONSTRAINT fk_Exam_CategoryQuestion FOREIGN KEY (CategoryID) REFERENCES CategoryQuestion(CategoryID),
-CONSTRAINT fk_Exam_Group FOREIGN KEY (CreatorID) REFERENCES `Group` (CreatorID)
+CONSTRAINT fk_Exam_Group FOREIGN KEY (CreatorID) REFERENCES `Account` (AccountID)
 );
 
-CREATE TABLE ExamQuestion((
+CREATE TABLE ExamQuestion(
 ExamID TINYINT,
 QuestionID TINYINT,
-PRIMARY ('ExamID', 'QuestionID'),
+PRIMARY KEY (`ExamID`, `QuestionID`),
 CONSTRAINT FOREIGN KEY fk_ExamQuestion_Exam(ExamID) REFERENCES Exam(ExamID),
 CONSTRAINT FOREIGN KEY fk_ExamQuestion_Question(QuestionID) REFERENCES Question(QuestionID)
 );
