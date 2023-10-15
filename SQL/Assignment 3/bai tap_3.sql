@@ -173,8 +173,8 @@ INSERT INTO `account` (Email, Username, Fullname, DepartmentID, PositionID, Crea
 -- ALTER TABLE `account` DROP CONSTRAINT fk_account_department;
 
 INSERT INTO `account` (Email, Username, Fullname, DepartmentID, PositionID, CreatedDate)
-	VALUES ('vti_account14@vtiacademy.com', 'vti14', 'Nguyen Tan Tai', 10, 2, '2021-2-01'),
-		   ('vti_account15@vtiacademy.com', 'vti15', 'Luu Duc Hoa', 11, 1, '2021-07-01')
+	VALUES ('vti_account15@vtiacademy.com', 'vti15', 'Nguyen Tan Tai', 10, 2, '2021-2-01'),
+		   ('vti_account16@vtiacademy.com', 'vti16', 'Luu Duc Hoa', 9, 1, '2021-07-01')
 ;
 
 -- group
@@ -297,6 +297,7 @@ INSERT INTO examquestion
 		   (16, 5)
 ;
 
+
 -- Question 2 
 SELECT * FROM Department;
 
@@ -318,7 +319,7 @@ WHERE LENGTH(fullname) = (SELECT MAX(LENGTH(Fullname)) FROM `account`)
 AND DepartmentID = 3;
 
 -- Question 6 
-SELECT Groupname
+SELECT Groupname, CreatedDate
 FROM `group`
 WHERE CreatedDate < '2019-12-20';
 
@@ -349,10 +350,10 @@ FROM `account`
 WHERE DepartmentID = 2;
 
 -- Question 11 
-#Chạy được nhưng không ra đáp án #
-SELECT Fullname 
+
+SELECT AccountID, Fullname
 FROM `account`
-WHERE Fullname LIKE 'D%''%o';
+WHERE SUBSTRING_INDEX(Fullname, ' ',-1) LIKE 'D%o';
 
 -- Question 12 
 DELETE 
